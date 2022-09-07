@@ -1,0 +1,22 @@
+.navBar{
+    cursor: pointer;
+    margin:0px;
+    margin-top:60px;
+    padding: 0px;
+}
+.navBar ul{
+    position: fixed;
+    top: 0;
+    width: 100%;    
+    overflow: auto;
+    height: auto;
+    
+}
+.navBar li{
+    width: 25%;   
+   display: inline-block;
+   text-align: center;   
+   text-decoration: none;
+   font-size: 17px;
+    
+}
