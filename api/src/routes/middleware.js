@@ -15,11 +15,11 @@ const getpokemosApi= async(op,id,name)=>{
         
         for(u of pokeApi){
             const pokemon= await axios.get(u)
-            const info=pokemon.data
+            const info= await pokemon.data
             pokearray.push({
                 id: info.id,
                 name: info.name,
-                type: info.types.map((t) => {return { name:t.type.name}}),
+                types: info.types.map((t) => {return { name:t.type.name}}),
                 front_default: info.sprites.other["official-artwork"].front_default,
                 weight: info.weight,
                 height:info.height,
@@ -32,7 +32,7 @@ const getpokemosApi= async(op,id,name)=>{
 
         if(op===1){
             const pokeAllArray=[]
-            pokearray.map((p)=>{pokeAllArray.push({id:p.id, name:p.name,type:p.type,front_default:p.front_default})})
+            pokearray.map((p)=>{pokeAllArray.push({id:p.id, name:p.name,types:p.types,front_default:p.front_default})})
             const pokeFoundDb=await Pokemon.findAll(
                 {
                     attributes: {
@@ -41,7 +41,7 @@ const getpokemosApi= async(op,id,name)=>{
                     include: [{ model: Type, attributes: ['name']}],
                   }   
             )
-            if(pokeFoundDb){pokeAllArray.push(pokeFoundDb)}
+            if(pokeFoundDb){pokeFoundDb.map(p=>pokeAllArray.push(p))}
             const pokeResponse1=pokeAllArray?pokeAllArray:{error:`Not pokemons to show.`}
                   return pokeResponse1
         }
@@ -70,7 +70,7 @@ const getpokemosApi= async(op,id,name)=>{
               const obj=pokearray.find(p=>p.name===name) 
               let pokeFound={}           
                         
-              const pokeResponse3=(obj)?pokeFound={id:obj.id, name:obj.name,type:obj.type,front_default:obj.front_default}:(pokeFoundDb)?pokeFoundDb:{error:`Pokemon by name ${name} not found`}
+              const pokeResponse3=(obj)?pokeFound={id:obj.id, name:obj.name,types:obj.types,front_default:obj.front_default}:(pokeFoundDb)?pokeFoundDb:{error:`Pokemon by name ${name} not found`}
             return pokeResponse3
         }
         return pokearray

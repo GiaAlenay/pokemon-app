@@ -6,6 +6,7 @@ import {Landing} from './components/Landing/Landing';
 import {Home} from './components/Home/Home';
 import{CreatePokemon} from './components/CreatePokemon/CreatePokemon'
 import {About} from './components/About/About'
+import {PokemonDetail} from './components/PokemonDetail/PokemonDetail'
 
 function App() {
   return (
@@ -13,9 +14,11 @@ function App() {
       <React.Fragment>
       <Nav/>
       <Route exact path='/' component={Landing}/>
-      <Route  path='/home' component={Home}/>
+      <Route  exact path='/home' component={Home}/>
+      <Route exact path= '/pokemons/:id' component={PokemonDetail}/>
       <Route  path='/create' component={CreatePokemon}/>
       <Route  path='/about' component={About}/>
+
       </React.Fragment>      
       
     </div>

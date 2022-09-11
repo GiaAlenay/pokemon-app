@@ -25,7 +25,7 @@ module.exports = (sequelize) => {
       type: DataTypes.FLOAT,
       defaultValue:10,
       validate:{
-        min:1,
+        min:0.1,
         max:1000
 
       }
@@ -35,7 +35,7 @@ module.exports = (sequelize) => {
       type:DataTypes.FLOAT,
       defaultValue:5,
       validate:{
-        min:1,
+        min:0.1,
         max:20
       }
     },
@@ -62,7 +62,7 @@ module.exports = (sequelize) => {
     },
     front_default:{
       type:DataTypes.TEXT
-      //validacion jpg
+      
     }
 
 
