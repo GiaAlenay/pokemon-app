@@ -1,0 +1,134 @@
+#cardonSearch{
+    height: 100%;    
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;   
+    background-repeat:no-repeat;
+    background-position: center;
+    background-color: rgba(0,0,0, 0.9);
+    overflow-x: hidden;  
+}
+
+#cardonSearch .card{
+    box-shadow: 0 0 80px -10px rgb(65, 64, 63);
+    width: 250px ;
+    height: 400px;
+    margin-left: 40%;
+    margin-top: 5%;
+    border-width: 3px;
+    border-style: solid;
+    border-color: #3c5018;
+    
+}
+#cardonSearch:hover .card:hover .pokeName {
+    color:#d8dbd0;
+    text-shadow: 1px 1px;
+}
+
+#cardonSearch:hover .card:hover{
+    width: 260px ;
+    height: 410px;
+    box-shadow: 0 0 80px -10px rgb(190, 112, 33);
+    animation: shake 0.5s;
+    animation-iteration-count: infinite;
+}
+
+.card{
+    border-radius: 20px;
+}
+.error{
+    color:rgb(231, 16, 16);
+    font-size: 35px;
+    -webkit-text-stroke: 2px rgb(219, 221, 70);
+}
+
+.mainimg{
+    filter: drop-shadow(10px 5px 4px #1b1b1b);
+    width: 230px;
+    height: 230px;
+    margin-bottom: 0px;   
+}
+
+.closeBtn{
+    width: 100px;
+    height: 50px;
+    background-size: cover;
+    background-image: url('./img/closeBtn.png');
+    margin-top: 2%;
+    cursor: pointer;
+    color:rgb(219, 204, 115);
+    font-weight: bold;
+}
+.closeBtn:hover{
+    width: 105px;
+    height: 55px;
+    filter: drop-shadow(10px 5px 4px rgb(224, 207, 109))
+}
+.imgCont{
+    margin-top: 0px;
+    width: 230px;
+    height: 230px;
+    margin-bottom: 0px;
+}
+
+
+#cardGroup {
+    border-radius: 20px;
+    border: 5px solid white;
+    width: 250px;
+    height: 410px;
+    margin: 20px;  
+    box-shadow: 5px 5px 5px rgb(104, 100, 100);
+}
+
+#cardGroup:hover {
+    width: 250px ;
+    height: 405px;
+    box-shadow: 0 0 80px -10px rgb(175, 236, 8);
+    animation: shake 0.5s;
+    animation-iteration-count: infinite;
+}
+/* div padre types+img */
+.typesContainer{
+    position: relative; 
+}
+/* div each type*/
+.type{
+    color: brown;
+    font-style: italic;
+    font-family: cursive;
+}
+/* div all types */
+.typesPoke{
+    width: 180px;
+    position: absolute;
+    top: 20%;
+    margin-left: 20px;
+    
+}
+/* img container */
+.description{
+    margin-top: 0px;
+    width: 200px;
+    height: 105px;
+    filter: drop-shadow(10px 5px 4px #1b1b1b); 
+}
+.pokeName{    
+    font-size: 18px;   
+}
+
+.title{    
+    position: relative; 
+    width: 150px;
+    margin-left: 21%;
+}
+.titleContainer{
+    filter: drop-shadow(10px 5px 4px #252424);
+    width: 150px;    
+}
+.poketitlecontainer{    
+    position: absolute;
+    top: 30%;
+    margin-left: 15%;
+}

@@ -1,13 +1,18 @@
+
 .navBar{
     cursor: pointer;
     margin:0px;
-    margin-top:60px;
+    padding-top: 0%;
+   height: 50px;
     padding: 0px;
+    transition-timing-function: ease-in;
+    transition: top 0.8s;
+    
 }
+
 .navBar ul{
-    position: fixed;
-    top: 0;
-    width: 100%;    
+   position:-webkit-sticky;
+    top: 0;      
     overflow: auto;
     height: auto;
     
@@ -18,5 +23,13 @@
    text-align: center;   
    text-decoration: none;
    font-size: 17px;
-    
+   color: blue;
+   font-weight: bold;
+   -webkit-text-stroke: 1px rgb(211, 211, 238);
+   
+}
+
+.navBar li:hover{
+    font-size:22px;
+    text-shadow: 4px 4px 4px #e7cfcf;
 }

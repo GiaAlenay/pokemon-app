@@ -73,6 +73,26 @@ const getpokemosApi= async(op,id,name)=>{
               const pokeResponse3=(obj)?pokeFound={id:obj.id, name:obj.name,types:obj.types,front_default:obj.front_default}:(pokeFoundDb)?pokeFoundDb:{error:`Pokemon by name ${name} not found`}
             return pokeResponse3
         }
+        if(op===4){
+            const pokeFoundDb= await Pokemon.findAll(
+                {attributes:['id']} 
+            )
+            const pokeAllArray=[]
+            pokearray.map((p)=>{pokeAllArray.push(p.id)})
+            if(pokeFoundDb){pokeFoundDb.map(p=>pokeAllArray.push(p.id))}
+            const pokeResponse4=pokeAllArray?pokeAllArray:{error:`Not pokemons id to show.`}
+                  return pokeResponse4
+        }
+        if(op===5){
+            const pokeFoundDb= await Pokemon.findAll(
+                {attributes:['name']} 
+            )
+            const pokeAllArray=[]
+            pokearray.map((p)=>{pokeAllArray.push(p.name)})
+            if(pokeFoundDb){pokeFoundDb.map(p=>pokeAllArray.push(p.name))}
+            const pokeResponse5=pokeAllArray?pokeAllArray:{error:`Not pokemons Name to show.`}
+                  return pokeResponse5
+        }
         return pokearray
     
 }

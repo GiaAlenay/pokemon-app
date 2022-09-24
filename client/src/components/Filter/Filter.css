@@ -1,0 +1,44 @@
+.types{
+    display: grid;
+    grid-template-columns: repeat(2,100px);
+}
+
+.category .order{
+    
+    display: block;
+    position: relative;
+}
+
+.container {
+    background-size: 270px 970px;    
+    background-image: url('./img/filterHolder.png');
+    text-align: left;
+    max-width: 255px;
+    height: 970px;
+    margin-left: 20px;
+    padding: 5px;
+    color: white;
+    
+   
+}
+.containerGeneral{
+    margin-left: 15px; 
+    margin-right: 22px;
+}
+.filterByTitle{
+    margin-top: 45% ;
+}
+.container h5{
+    all:none;
+    margin-left: 15px;
+}
+
+input{
+    cursor: pointer;
+}
+
+.subContainer {
+    padding: 0px 10px 10px 10px;
+    margin: 10px;
+    
+}

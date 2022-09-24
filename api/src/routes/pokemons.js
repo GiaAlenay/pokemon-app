@@ -8,15 +8,43 @@ router.get('/' ,async(req , res )=>{
     const {name}=req.query
     if(name){
         const op=3;
-        
         const pokeByName= await getpokemosApi(op,null,name)
-        return res.json(pokeByName)
+        if(pokeByName.error){return res.status(404).json(pokeByName)}
+        return res.status(200).json(pokeByName)
     }
     const op=1;
     const allPokemons=await getpokemosApi(op)
-    
-    return res.json(allPokemons)
+
+    try{
+        if(allPokemons.error){return res.status(404).json(allPokemons)}
+        return res.status(200).json(allPokemons)
+    }catch(error){
+        return res.status(400).json({error:'no matches to show'})
+    }
  
+})
+
+router.get('/id',async(req, res)=>{
+    const op=4;
+    const allPokeId= await getpokemosApi(op)
+    
+    try{
+        if(allPokeId.error){return res.status(404).json(allPokeId)}
+        return res.status(200).json(allPokeId)
+    }catch(error){
+        return res.status(400).json({error:'no matches to show'})
+    }
+})
+
+router.get('/name',async(req, res)=>{
+    const op=5;
+    const allPokeName= await getpokemosApi(op)
+    try{
+        if(allPokeName.error){return res.status(404).json(allPokeName)}
+        return res.status(200).json(allPokeName)
+    }catch(error){
+        return res.status(400).json({error:'no matches to show'})
+    }
 })
 
 router.post('/',async(req,res)=>{
@@ -27,12 +55,12 @@ router.post('/',async(req,res)=>{
         const findPokemonId=await Pokemon.findByPk(id)
 
        if(findPokemonName){
-        return res.json({error:`Pokemon with name "${name}" already exists.`})}
+        return res.status(404).json({error:`Pokemon with name "${name}" already exists.`})}
        if(findPokemonId){
-        return res.json({error:`Pokemon with id "${id}" already exists.`})}
+        return res.status(404).json({error:`Pokemon with id "${id}" already exists.`})}
 
     }
-    if(!name || ! id){return res.json({error:'Incomplete information.'})}
+    if(!name || ! id){return res.status(400).json({error:'Incomplete information.'})}
 
     try{
         const newPokemon= await Pokemon.create(
@@ -40,7 +68,7 @@ router.post('/',async(req,res)=>{
         const PokeTypes= await Type.findAll()
         if (types.length===0)types=[Math.floor(Math.random() * (PokeTypes.length))]
         await newPokemon.setTypes(await types)
-        return res.send('Pokemon created successfully.' )
+        return res.status(200).send('Pokemon created successfully.' )
 
     }catch(error){
         return res.status(404).json({error:error})
@@ -53,7 +81,8 @@ router.get('/:id',async(req,res)=>{
     const op=2;
     if(id){
         const pokeById= await getpokemosApi(op,id)
-        res.json(pokeById)
+        if(pokeById.error){return res.status(404).json(pokeById)}
+        return res.status(200).json(pokeById)
     }
 })
 

@@ -1,8 +1,20 @@
-import { GET_TYPES, GET_ALL_POKEMONS,GET_POKEMON_BY_ID,GET_POKEMON_BY_NAME } from './typesActions'
-const axios = require('axios')
+import { GET_TYPES,
+   GET_ALL_POKEMONS,
+   GET_POKEMON_BY_ID,
+   GET_POKEMON_BY_NAME,
+   CLEAR,
+   FILTER_ORDER,
+   MEMORY,
+   ALL_ID,
+   ALL_NAMES
+  } from './typesActions'
+
+
+
+  const axios = require('axios')
 
 export  const getTypes=()=>dispatch=>{  
-    axios.get('http://localhost:3001/types')
+    return axios.get('http://localhost:3001/types')
     .then((json)=>{
        dispatch(
         {type:GET_TYPES , payload:json.data})
@@ -11,7 +23,7 @@ export  const getTypes=()=>dispatch=>{
 }
 
 export const  getAllPokemons=()=>dispatch=>{
-  axios.get('http://localhost:3001/pokemons')
+  return axios.get('http://localhost:3001/pokemons')
   .then((data)=>{
     dispatch({type: GET_ALL_POKEMONS, payload:data.data})
   }).catch((error) => {
@@ -19,7 +31,7 @@ export const  getAllPokemons=()=>dispatch=>{
 }
 
 export const  getPokemonByID=(id)=>dispatch=>{
-  axios.get(`http://localhost:3001/pokemons/${id}`)
+  return axios.get(`http://localhost:3001/pokemons/${id}`)
   .then((data)=>{
     dispatch({type: GET_POKEMON_BY_ID, payload:data.data})
   }).catch((error) => {
@@ -27,9 +39,41 @@ export const  getPokemonByID=(id)=>dispatch=>{
 }
 
 export const  getAllPokemonByName=(name)=>dispatch=>{
-  axios.get(`http://localhost:3001/pokemons?name=${name}`)
+  return axios.get(`http://localhost:3001/pokemons?name=${name}`)
   .then((data)=>{
+    console.log(data.data)
     dispatch({type:GET_POKEMON_BY_NAME , payload:data.data})
   }).catch((error) => {
-    console.log(error)})
+    //console.log(error.response.data)
+    dispatch({type:GET_POKEMON_BY_NAME , payload:error.response.data})
+  })
+}
+
+export const clear=(payload)=>{
+  return{ type: CLEAR, payload:payload}
+ }
+
+export const filterOrderAction=(object)=>{  
+  return{ type:FILTER_ORDER, payload:object} 
+}
+
+export const memoryAction=(forget)=>{
+  return{ type:MEMORY, payload:forget}
+}
+
+export const getAllIdAction=()=>dispatch=>{
+  return axios.get('http://localhost:3001/pokemons/id')
+  .then((data)=>{
+    //console.log(data.data)
+    dispatch({type:ALL_ID,  payload:data.data})
+  }).catch((error)=>{
+    console.log(error)
+  })
+}
+
+export const getAllNamesAction=()=>dispatch=>{
+  return axios.get('http://localhost:3001/pokemons/name')
+  .then((data)=>{
+    dispatch({type:ALL_NAMES, payload:data.data})
+  }).catch((e)=>{console.log(e)})
 }

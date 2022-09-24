@@ -1,13 +1,13 @@
 import React from "react";
 import { Card } from "../Card/Card";
-
+import './Cards.css'
 export const Cards=(props)=>{
     
     return(
-        <div>
-            <ul>
+        <div >
+            <ul className="cards">
                 {props.allPokemons?.map((p)=>(
-                    <div key ={p.id}>
+                    <div className="card" key ={p.id}>
                         <li>
                             <Card name={p.name}
                                     id={p.id}

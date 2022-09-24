@@ -1,0 +1,59 @@
+#SLIDE_BG{
+    width: 100%;
+    height: 100vh;
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    backface-visibility: hidden;
+    animation: slider 15s linear infinite 1s;
+    animation-timing-function: ease-in-out;
+    background-image: url('./img/back2.jpg');
+}
+
+@keyframes slider{
+    0%{
+        background-image: url('./img/back2.jpg');
+    }
+    25%{
+        background-image: url('./img/back3.jpg');
+    }
+    50%{
+        background-image: url('./img/back1.jpg');
+    }
+    75%{
+        background-image: url('./img/back5.jpg');
+    }
+    100%{
+        background-image: url('./img/back4.jpg');
+    }
+}
+
+#logo{
+    
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+  
+}
+
+#logo:hover {
+    cursor: pointer;
+    animation: shake 0.5s;
+    animation-iteration-count: infinite;
+}
+
+
+
+@keyframes shake {
+0% { transform: translate(1px, 1px) rotate(0deg); }
+10% { transform: translate(-1px, -2px) rotate(-1deg); }
+20% { transform: translate(-3px, 0px) rotate(1deg); }
+30% { transform: translate(3px, 2px) rotate(0deg); }
+40% { transform: translate(1px, -1px) rotate(1deg); }
+50% { transform: translate(-1px, 2px) rotate(-1deg); }
+60% { transform: translate(-3px, 1px) rotate(0deg); }
+70% { transform: translate(3px, 1px) rotate(-1deg); }
+80% { transform: translate(-1px, -1px) rotate(1deg); }
+90% { transform: translate(1px, 2px) rotate(0deg); }
+100% { transform: translate(1px, -2px) rotate(-1deg); }
+}

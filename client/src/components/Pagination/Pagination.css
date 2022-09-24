@@ -1,0 +1,51 @@
+.pageBtn{
+    background-image: url('./img/pagBtn.png');
+    
+}
+.prevBtn{
+    background-image: url('./img/prevBtn.png');
+    color: transparent;
+}
+.nextBtn{
+    background-image: url('./img/nextBtn.png');
+    color: transparent;
+}
+
+.paginationContainer button{    
+    margin: 1px;
+    background-size: 50px 50px;
+    font-size:20px;
+    width: 50px;
+    height: 50px;
+    font-weight: bold;
+    -webkit-text-stroke: 1px navy;
+    color: rgb(221, 221, 241);
+}
+
+.paginationContainer button:hover{
+    cursor:pointer;
+    background-size: 55px 55px;
+    font-size:25px;
+    width: 55px;
+    height: 55px;
+}
+.upperBtn{
+    
+    margin-top: 25px;
+    margin-bottom: 5px;
+}
+.underBtn{
+    margin-left: 15%;
+    margin-top: 5px;
+    margin-bottom: 35px;
+}
+
+.current{
+    background-size: 65px 65px;
+    font-size:25px;
+    width: 65px;
+    height: 65px;
+    box-shadow: 5px 5px 5px rgb(104, 102, 102);
+    border-radius:1px ;
+    border: 2px solid rgb(238, 235, 235);
+}

@@ -1,0 +1,10 @@
+.cards{
+    
+    display: grid;
+    grid-template-columns: repeat(3,320px );
+}
+
+ul { list-style-type: none; }
+
+.card{
+}
