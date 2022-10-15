@@ -13,7 +13,7 @@ export const SearchBar=(props)=>{
     const [suggestions,setSuggestions]=useState([])
     const pokemonCard=useSelector(state=>state.pokemonCard)
     const memory=useSelector(state=>state.memory)
-    console.log('searchbar memory'+memory)
+    //console.log('searchbar memory'+memory)
 
     
 
@@ -30,7 +30,7 @@ export const SearchBar=(props)=>{
         dispatch(memoryAction(true))
             
     }
-    console.log(pokemonCard)
+    //console.log(pokemonCard)
 
      const handleKeyDown = (event) => {    
        if (event.key === 'Enter') {          
@@ -72,7 +72,7 @@ export const SearchBar=(props)=>{
             
             <div className='cont'>{suggestions && suggestions.map((su,i)=>(
               <div  key={i} 
-              id={suggestions.length===i+1 ?'su':undefined}
+              id={suggestions.length===i+1 ?'su':'else'}
               className="suggestion"
               onClick={()=>onSuggestHandler(su.name)}
               >{su.name}

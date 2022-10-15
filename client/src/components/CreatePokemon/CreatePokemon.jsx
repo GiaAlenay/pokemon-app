@@ -15,11 +15,11 @@ function Validate(input,allName,allID){
     const foundSpace=inputNameArray.find(f=>f.charCodeAt(0)===32)
     const foundSpecial=inputNameArray.find(f=>f.charCodeAt(0)<65 || f.charCodeAt(0)>122 || f.charCodeAt(0)===91||f.charCodeAt(0)===92||f.charCodeAt(0)===93||f.charCodeAt(0)===94||f.charCodeAt(0)===95||f.charCodeAt(0)===96)    
     
-        if(!input.name){errors.name='Name is required'}
-        if(foundName){errors.name='Name already exists'}
-        if(foundSpace){errors.name='Space detected'}
-        if(foundSpecial){errors.name='Special character'}
-        if(input.name.length>12){errors.name='Name is too long'}
+    if(!input.name){errors.name='Name is required'}
+    if(foundName){errors.name='Name already exists'}
+    if(foundSpace){errors.name='Space detected'}
+    if(foundSpecial){errors.name='Special character'}
+    if(input.name.length>12){errors.name='Name is too long'}
     
     
 
